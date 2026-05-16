@@ -6,7 +6,7 @@ import axios from 'axios';
 import './Dashboard.css';
 
 // Apna Backend URL yahan set kar (local testing ke liye 5000)
-const API_URL = 'http://localhost:5000/api'; 
+const API_URL = 'https://hirematrix-backend-4ojv.onrender.com/api'; 
 
 export default function Dashboard() {
   const { getToken } = useAuth(); // Clerk auth token nikalne ke liye
@@ -77,19 +77,19 @@ export default function Dashboard() {
     setIsLoading(false);
   };
 
-  // 🔥 2. AI Resume Scan + Smart Auto Job Fetch
+ 
   const handleScanAndSearch = async () => {
     if (!resumeFile) return alert("Please upload a PDF resume!");
     setIsLoading(true);
-    setIsScanned(false); // Reset scanned state
-    setJobs([]); // Clear previous jobs
+    setIsScanned(false); 
+    setJobs([]); 
     
     const formData = new FormData();
     formData.append('resume', resumeFile);
-    formData.append('targetRole', searchType); // Optional context
+    formData.append('targetRole', searchType); 
 
     try {
-      // Step A: Pehle AI se scan karwao (Skills + Suggested Roles nikalne ke liye)
+      
       const aiRes = await axios.post(`${API_URL}/scan-resume`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });

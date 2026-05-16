@@ -1,0 +1,84 @@
+/* FIXED NAVBAR STYLING */
+.dash-nav-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(5, 5, 9, 0.85); /* Dark background with transparency */
+  backdrop-filter: blur(12px); /* Glassmorphism blur effect */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 15px 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 100%;
+}
+
+.dash-nav-container {
+  max-width: 1400px;
+  width: 92%; /* Edge-to-edge wide look */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO */
+.dash-nav-fixed .logo {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.dash-nav-fixed .text-gradient {
+  background: linear-gradient(135deg, #a855f7, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* RIGHT SECTION (Status & User Profile) */
+.dash-nav-fixed .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ONLINE STATUS INDICATOR */
+.dash-nav-fixed .status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.dash-nav-fixed .pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulse 2s infinite;
+}
+
+.dash-nav-fixed .status-text {
+  color: #10b981;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .dash-nav-fixed .status-indicator {
+    display: none; /* Mobile par clean rakhne ke liye status hide kar diya */
+  }
+}

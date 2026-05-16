@@ -145,10 +145,16 @@ export default function Dashboard() {
       });
       setAtsResult(res.data.data);
     } catch (error) {
-      alert("Error calculating ATS Score");
+      // Console mein poora error print karega
+      console.error("ATS Backend Error:", error.response ? error.response.data : error.message);
+      
+      // Screen par specific error dikhayega
+      const errorMsg = error.response?.data?.message || error.message;
+      alert(`Backend Error: ${errorMsg}`);
     }
     setIsLoading(false);
   };
+  
 
   // --- WORKSPACE ACTIONS ---
   const handleWorkspaceAction = async (action, jobData) => {
